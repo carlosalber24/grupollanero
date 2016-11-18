@@ -1,0 +1,170 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = true; 
+    app.settings.asideDock = false;
+  ">
+  <!-- main -->
+  <div class="col" style="margin-top: -13px;">
+    <!-- main header -->
+    <div class="bg-light lter b-b wrapper-md container-data">
+      <div class="row" style="margin-bottom: -20px;">
+        <div class="col-sm-8 col-xs-12 sub-container-data-left">
+          <button type="submit" ng-controller="ModalDemoCtrl" ng-click="open('other')" class="btn btn-sm btn-success pull-right text-uc m-t-n-xs add-p"><strong>Agregar Producto</strong></button>
+
+           <form class="bs-example form-horizontal">
+            <div class="form-group" style="margin-bottom: 3px;">
+              <label class="col-lg-2 control-label"  style="margin-top: 38px;">Cajas</label>
+            </div>
+            <div class="input-group m-b">
+              <input type="text" class="form-control" placeholder="Indique el número de cajas">
+              <span class="input-group-addon"><i class="fa fa-search"></i></span>
+            </div>
+            <div class="form-group" style="margin-bottom: 3px;">
+              <label class="col-lg-2 control-label">Tamaño</label>
+            </div>
+            <div class="input-group m-b">
+              <input type="text" class="form-control">
+              <span placeholder="Indique el tamaño"></span>
+            </div>
+          </form>
+            <div ng-controller="TableCtrl">
+              <div class="nav-tabs-alt" >
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="active" style="margin-right: -2px; ">
+                    <a data-target="#tab-1" role="tab" data-toggle="tab" style="border-radius: 8px 0px 0px 8px;">
+                      Hoy
+                    </a>
+                  </li>
+                  <li>
+                    <a data-target="#tab-2" role="tab" data-toggle="tab" style="border-radius: 0px 8px 8px 0px;">
+                      Bodega
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              
+          <div class="input-group m-b searching">
+              <input type="text" class="form-control" placeholder="Search in table">
+          </div>
+            
+          <div class="tab-content">
+
+            <div role="tabpanel" class="tab-pane active" id="tab-1">
+              <div class="wrapper-md container-table">
+                <div class="panel panel-default">
+                  <table st-table="rowCollectionBasic" class="table table-bordered table-striped">
+                    <tbody>
+                    <tr ng-repeat="row in rowCollectionBasic" st-select-row="row">
+                      <td>{{row.time}}</td>
+                      <td>{{row.order}}</td>
+                      <td>{{row.client}}</td>
+                      <td>{{row.total}}</td>
+                      <td>{{row.status}}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="tab-2">
+              <div class="wrapper-md container-table">
+                <div class="panel panel-default">
+                  <table st-table="rowCollectionBasic" class="table table-bordered table-striped">
+                    <tbody>
+                    <tr ng-repeat="row in rowCollectionBasic" st-select-row="row">
+                      <td>{{row.time}}</td>
+                      <td>{{row.order}}</td>
+                      <td>{{row.client}}</td>
+                      <td>{{row.total}}</td>
+                      <td>{{row.status}}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+             </div>
+            </div>
+          </div>
+       
+       
+        <div class="col-sm-4 text-right hidden-xs sub-container-data-right" ng-controller="TableCtrl">
+          <div class="form-group" style="margin-bottom: 3px;" >
+            <label class="col-lg-2 control-label discard-label"><i class="fa fa-trash" aria-hidden="true"></i> Descartar venta</label>
+          </div>
+
+           <div class="container-table-bill">
+              <div class="list-group">
+                  
+                  <div class="li">
+                    <i class="icon-user"></i> 
+                    <div class="user-info" ng-controller="ModalDemoCtrl">
+                        <span class="block text-ellipsis ng-binding">Sergio Iván Diaz Alarcon <i ng-click="open('clients')" class="fa fa-pencil" aria-hidden="true"></i></span>
+                        <small class="text-muted ng-binding">Balance: $0.00</small>
+                    </div>
+                  </div>
+
+                  <div class="li">
+                    <div class="user-info">
+                      <span class="block text-ellipsis ng-binding billing-text">Facturar<label class="checkbox i-checks">
+                      </span>
+                      <div class="checkbox bill-check">
+                        <label class="i-checks">
+                          <input type="checkbox" checked=""><i></i>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="li">
+                    <div class="user-info">
+                        <span class="block text-ellipsis ng-binding">Manzana Chino <span class="text-code">2</span></span>
+                        <small class="text-muted ng-binding">132321243443</small>
+                    </div>
+                      <span class="block text-ellipsis ng-binding text-price">1.600.00 <i class="fa fa-trash" aria-hidden="true"></i></span>
+                   </div>
+
+                   <div class="li">
+                    <div class="user-info">
+                        <span class="block text-ellipsis ng-binding">Manzana Chino <span class="text-code">2</span></span>
+                        <small class="text-muted ng-binding">132321243443</small>
+                    </div>
+                      <span class="block text-ellipsis ng-binding text-price">1.600.00 <i class="fa fa-trash" aria-hidden="true"></i></span>
+                   </div>
+
+                   <div class="li li-custom">
+                      <div class="user-info" style="width: 200px;">
+                          <span class="block text-ellipsis ng-binding">Subtotal</span>
+                          <small class="text-muted ng-binding">Impuestos</small>
+                      </div>
+                        <div class="user-info" style="float: right; width: 65px;">
+                          <span class="block text-ellipsis ng-binding">$2.200,00</span>
+                          <small class="text-muted ng-binding">$0,00</small>
+                      </div>
+                    </div>
+
+                    <div class="li li-custom-2">
+                      <div class="user-info" style="width: 200px;">
+                          <span class="block text-ellipsis ng-binding">Total</span>
+                      </div>
+                      <div class="user-info" style="float: right; width: 65px;">
+                          <span class="block text-ellipsis ng-binding" style="font-weight: bold; font-size: 1.2em;">$2.200,00</span>
+                      </div>
+
+                        <div class="box-pay-btn">
+                          <input type="button" value="Pagar">
+                          <i class="separator"></i>
+                       </div>
+                   </div>
+                </a><!-- end ngRepeat: note in notes | filter:query | orderBy:'date':true -->
+              </div>
+           </div>
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+</div>
